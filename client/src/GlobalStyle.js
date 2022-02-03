@@ -15,25 +15,26 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Open Sans', sans-serif;
     
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: ${theme.color.grey};
     
     display: flex;
+    flex-direction: column;
     
     align-items: center;
-    justify-content: center;
     
+    overflow-y: scroll;
   }
 
   footer {
+    font-size: 1.2vw;
     width: 100vw;
     position: fixed;
     display: flex;
-    justify-content: center;
+    justify-content: safe flex-end;
     bottom: 0;
-    left: 0;
   }
 `

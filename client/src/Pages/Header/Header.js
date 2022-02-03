@@ -3,6 +3,6 @@ import {HeaderTitle} from "./Style";
 
 export function Header(){
     return(
-        <Link to='/'><HeaderTitle className="titulo" align='center'>REACT FULLSTACK</HeaderTitle></Link>
+        <HeaderTitle className="titulo" align='center'><Link to='/'>REACT FULLSTACK</Link></HeaderTitle>
     )
 }

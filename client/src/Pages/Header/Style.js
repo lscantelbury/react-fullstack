@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
-export const HeaderTitle = styled.h1`
+export const HeaderTitle = styled.header`
+  height: 2.5rem;
   font-size: 2.5rem;
-  color: ${({theme}) => theme.color.c5};
-  width: 100vw;
   display: flex;
   justify-content: center;
   font-family: 'Sedgwick Ave', cursive;
-  position: fixed;
-  top: 0;
-  left: 0;
+  
+  a{
+    text-decoration: none;
+    color: ${({theme}) => theme.color.c5};
+  }
 `
