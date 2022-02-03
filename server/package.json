@@ -16,7 +16,6 @@
     "sequelize": "^6.15.0",
     "sequelize-cli": "^6.4.1"
   },
-  "devDependencies": {},
   "keywords": [],
   "description": ""
 }
