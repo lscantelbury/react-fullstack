@@ -37,4 +37,8 @@ export const GlobalStyle = createGlobalStyle`
     justify-content: safe flex-end;
     bottom: 0;
   }
+  
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
