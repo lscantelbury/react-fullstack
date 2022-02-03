@@ -23,6 +23,12 @@ export const Card = styled.div`
   
   box-shadow: 0 0 1em ${({theme}) => theme.color.c1};
   
+  cursor: zoom-in;
+  
+  &:active {
+    transform: scale(1.3);
+  }
+  
   * {
     margin: 0.25rem;
     padding: 0.5rem;
@@ -43,7 +49,6 @@ export const Card = styled.div`
   .text {
     background-color: whitesmoke;
     &:hover {
-      min-height: ${(cardH * 0.5).toString()}rem;
       background-color: white;
       cursor: pointer;
     }
