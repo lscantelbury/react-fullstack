@@ -3,10 +3,6 @@ import styled from "styled-components";
 const cardH = 8; //rem
 const cardW = 35; //vw
 
-//&:hover {
-  //  min-height: ${(cardH * 2).toString()}rem;
-    //width: ${(cardW * 1.1).toString()}vw;
-//}
 export const Card = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
   min-height: ${cardH.toString()}rem ;
@@ -24,6 +20,9 @@ export const Card = styled.div`
   box-shadow: 0 0 1em ${({theme}) => theme.color.c1};
   
   cursor: zoom-in;
+  
+  resize: horizontal;
+  overflow: auto;
   
   &:active {
     transform: scale(1.3);
@@ -48,6 +47,7 @@ export const Card = styled.div`
   
   .text {
     background-color: whitesmoke;
+    min-height: auto;
     &:hover {
       background-color: white;
       cursor: pointer;
