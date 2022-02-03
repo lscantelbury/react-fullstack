@@ -7,9 +7,13 @@ export const HomePage = styled.div`
   justify-content: center;
   
   .createPost {
+    width: 5rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    align-self: center;
     
-    a {
-      text-decoration: none;
+    &:hover{
+      background-color: ${({theme}) => theme.color.c2};
     }
   }
 `

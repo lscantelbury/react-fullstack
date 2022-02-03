@@ -9,15 +9,15 @@ export function CreatePost(){
         <>
             <Header />
             <CreatePostCard className="createPost">
-                <Formik initialValues={null} onSubmit={() => history.push('/')}>
+                <Formik initialValues={null} onSubmit={() => {
+                    history.replace('/')
+                    history.go(0)
+                }}>
                     <Form>
-                        <label>Title</label>
-                        <Field id="inputCreatePost" name="title" placeholder={"(Ex. Luis Henrique"} />
-                        <label>Post:</label>
-                        <Field id="inputCreatePost" name="text" placeholder={"(Ex. Post..."} />
-                        <label>Username</label>
-                        <Field id="inputCreatePost" name="username" placeholder={"(Ex. lscantelbury"} />
-                        <button type="submit">Create Post</button>
+                        <Field id="inputCreatePost" className="title" name="title" placeholder={"Title"} />
+                        <Field id="inputCreatePost" className="text" name="text" placeholder={"Post"} />
+                        <Field id="inputCreatePost" className="username" name="username" placeholder={"Username"} />
+                        <button className="buttonCreate" type="submit">Create Post</button>
                     </Form>
                 </Formik>
             </CreatePostCard>
