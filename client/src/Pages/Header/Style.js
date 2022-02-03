@@ -6,6 +6,7 @@ export const HeaderTitle = styled.header`
   display: flex;
   justify-content: center;
   font-family: 'Sedgwick Ave', cursive;
+  margin-bottom: 1rem;
   
   a{
     text-decoration: none;

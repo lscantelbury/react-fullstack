@@ -1,12 +1,13 @@
 import {Post} from "../../Components/Post/Post";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
 import {HomePage} from "./Style";
 import {Header} from "../Header/Header";
+import {useHistory} from "react-router-dom";
 
 export function Home(){
     const [listOfPosts, setListOfPosts] = useState([]);
+    const history = useHistory();
 
     useEffect(() => {
         axios.get('http://localhost:3001/posts').then((res) => {
@@ -17,7 +18,7 @@ export function Home(){
     <>
         <Header />
         <HomePage>
-            <Link to='/create-post'>Create a post</Link>
+            <button className='createPost' onClick={() => {history.push('/create-post')}}>Create a post</button>
             <Post listOfPosts={listOfPosts} />
             <footer>Luís Henrique Scantelbury de Almeida</footer>
         </HomePage>

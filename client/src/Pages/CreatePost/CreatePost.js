@@ -1,13 +1,15 @@
 import {Formik, Form, Field} from "formik";
 import {CreatePostCard} from "./Style";
 import {Header} from "../Header/Header";
+import {useHistory} from "react-router-dom";
 
 export function CreatePost(){
+    const history = useHistory();
     return(
         <>
             <Header />
             <CreatePostCard className="createPost">
-                <Formik initialValues={null} onSubmit={() => alert("hello world")}>
+                <Formik initialValues={null} onSubmit={() => history.push('/')}>
                     <Form>
                         <label>Title</label>
                         <Field id="inputCreatePost" name="title" placeholder={"(Ex. Luis Henrique"} />

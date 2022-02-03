@@ -6,7 +6,10 @@ export const HomePage = styled.div`
   align-items: center;
   justify-content: center;
   
-  a {
-    align-self: center;
+  .createPost {
+    
+    a {
+      text-decoration: none;
+    }
   }
 `
