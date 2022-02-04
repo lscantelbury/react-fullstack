@@ -2,7 +2,6 @@ import {Post} from "../../Components/Post/Post";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {HomePage} from "./Style";
-import {Header} from "../Header/Header";
 import {useHistory} from "react-router-dom";
 
 export function Home(){
@@ -16,7 +15,6 @@ export function Home(){
     }, [])
     return(
     <>
-        <Header />
         <HomePage>
             <button className='createPost' onClick={() => {history.push('/create-post')}}>Create a post</button>
             <Post listOfPosts={listOfPosts} />

@@ -1,6 +1,5 @@
 import {Formik, Form, Field, ErrorMessage} from "formik";
 import {CreatePostCard} from "./Style";
-import {Header} from "../Header/Header";
 import {useHistory} from "react-router-dom";
 import * as Yup from 'yup';
 import axios from "axios";
@@ -28,7 +27,6 @@ export function CreatePost(){
     });
     return(
         <>
-            <Header />
             <CreatePostCard className="createPost">
                 <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={validationSchema}>
                     <Form>
