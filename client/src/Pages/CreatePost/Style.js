@@ -62,4 +62,10 @@ export const CreatePostCard = styled.div`
 
         font-family: 'Architects Daughter', cursive;
       }
+  
+  label {
+    font-size: 0.8rem;
+    color: red;
+    margin: 0;
+  }
 `
