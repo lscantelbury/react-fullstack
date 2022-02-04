@@ -69,28 +69,27 @@ export const Card = styled.div`
 `
 export const ExpandedCard = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-  min-height: ${(cardH*4).toString()}rem ;
-  width: ${(cardW*2).toString()}vw;
-  padding: 1.5rem;
-  padding-top: 0.5rem;
-  
-  background-color: ${({theme}) => theme.color.c4};
-  border-radius: 1rem;
   
   display: flex;
+  padding: 1rem;
+  
+  align-items: center;
+  
+.card {
+
+  min-height: ${(cardH*4).toString()}rem ;
+  width: ${(cardW*2).toString()}vw;
+
+  background-color: ${({theme}) => theme.color.c4};
+  border-radius: 1rem;
+
+  display: flex;
   flex-flow: column wrap;
-  
+
   box-shadow: 0 0 1em ${({theme}) => theme.color.c1};
-  
-  resize: horizontal;
+
   overflow: auto;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  
   *:not(.title) {
     margin: 0.25rem;
     padding: 0.5rem;
@@ -100,19 +99,19 @@ export const ExpandedCard = styled.div`
     width: 50%;
     border-radius: 0.5rem;
     background-color: ${({theme}) => theme.color.c2};
-    
+
     margin: 0.5rem;
     display: flex;
     justify-content: center;
     align-self: center;
-    
+
     font-size: 2rem;
     font-family: 'Architects Daughter', cursive;
     &:hover {
       background-color: ${({theme}) => theme.color.c3};
     }
   }
-  
+
   .text {
     flex-grow: 1;
     background-color: whitesmoke;
@@ -121,17 +120,26 @@ export const ExpandedCard = styled.div`
       background-color: white;
     }
   }
-  
+
   .username {
     align-self: flex-end;
     margin-bottom: 0;
     padding-bottom: 0;
-    
+
     font-family: 'Architects Daughter', cursive;
 
     a {
       text-decoration: none;
       color: black;
     }
+  }
+}
+  .comments {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
   }
 `

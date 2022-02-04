@@ -11,14 +11,14 @@ export function Home(){
     useEffect(() => {
         axios.get('http://localhost:3001/posts').then((res) => {
             setListOfPosts(res.data);
-        })
+        });
     }, [])
     return(
     <>
         <HomePage>
-            <button className='createPost' onClick={() => {history.push('/create-post')}}>Create a post</button>
-            <Post listOfPosts={listOfPosts} />
-            <footer>Luís Henrique Scantelbury de Almeida</footer>
+                <button className='createPost' onClick={() => {history.push('/create-post')}}>Create a post</button>
+                <Post listOfPosts={listOfPosts} />
+                <footer>Luís Henrique Scantelbury de Almeida</footer>
         </HomePage>
     </>
     )

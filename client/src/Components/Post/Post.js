@@ -27,16 +27,44 @@ export function Post({listOfPosts}){
 export function ExpandedPost(){
     let { id } = useParams();
     const [postObject, setPostObject] = useState({});
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState('')
     useEffect(() => {
         axios.get(`http://localhost:3001/posts/byId/${id}`).then((res) => {
             setPostObject(res.data)
+        });
+
+        axios.get(`http://localhost:3001/comments/${id}`).then((res) => {
+            console.log(res.data)
+            setComments(res.data);
         })
     }, [])
+
+    const addComment = () => {
+        axios.post("http://localhost:3001/comments", {commentBody: newComment, PostId: id}).then(() => {
+            const commentToAdd = {commentBody: newComment};
+            setComments([...comments, commentToAdd]);
+            setNewComment('');
+        })
+    }
     return(
-        <ExpandedCard>
-            <div className="title">{postObject.title}</div>
-            <div className="text">{postObject.postText}</div>
-            <div className="username">{postObject.username}</div>
-        </ExpandedCard>
+            <ExpandedCard>
+                <div className="card">
+                    <div className="title">{postObject.title}</div>
+                    <div className="text">{postObject.postText}</div>
+                    <div className="username">{postObject.username}</div>
+                </div>
+                <div className="comments">
+                    <div className="listOfComments">
+                        {comments.map((comment, key) => {
+                            return <div key={key} className="comment"> {comment.commentBody} </div>
+                        })}
+                    </div>
+                    <input value={newComment} type='text' placeholder="Comment.." autoComplete="off" onChange={(event) => {
+                        setNewComment(event.target.value)
+                    }}/>
+                    <button onClick={addComment}>Add Comment</button>
+                </div>
+            </ExpandedCard>
     );
 }
