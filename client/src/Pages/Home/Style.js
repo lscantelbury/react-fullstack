@@ -9,7 +9,6 @@ export const HomePage = styled.div`
     .createPost {
       width: 5rem;
       height: 3rem;
-      margin-left: 1rem;
       border-radius: 0.5rem;
       align-self: center;
 
