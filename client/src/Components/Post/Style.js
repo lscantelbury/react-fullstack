@@ -74,8 +74,14 @@ export const ExpandedCard = styled.div`
   padding: 1rem;
   
   align-items: center;
+  justify-content: space-between;
+  
+  * {
+    margin: 1rem;
+  }
   
 .card {
+  flex-grow: 3;
 
   min-height: ${(cardH*4).toString()}rem ;
   width: ${(cardW*2).toString()}vw;
@@ -135,11 +141,80 @@ export const ExpandedCard = styled.div`
   }
 }
   .comments {
-    width: 100%;
-    height: 50vh;
+    min-height:  ${(cardH*4).toString()}rem ;
+    border-radius: 1rem;
+    
+    background-color: ${({theme}) => theme.color.c4};
+    box-shadow: 0 0 1em ${({theme}) => theme.color.c1};
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
+    flex-grow: 2;
+    
+    justify-content: space-between;
+    align-items: stretch;
+    
+    * {
+      margin: 0.5rem;
+    }
+    
+    .title {
+      font-size: 2rem;
+      font-family: 'Architects Daughter', cursive;
+      
+      margin: 0;
+    }
+    
+    .listOfComments {
+      flex-grow: 1;
+      background-color: ${({theme}) => theme.color.c5};
+      border: 2px solid ${({theme}) => theme.color.c2};
+      border-radius: 0.5rem;
+    }
+    .comment {
+      min-height: 1.5rem;
+      background-color: whitesmoke;
+      border-radius: 0.25rem;
+      
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    
+    .input {
+      display: flex;
+      height: 3rem;
+      justify-content: center;
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      
+      textarea {
+        background-color: whitesmoke;
+        border-radius: 0.5rem 0 0 0.5rem;
+        
+        padding: 0.5rem;
+        
+        overflow: scroll;
+        resize: none;
+        
+        &::placeholder {
+          position: relative;
+          top: 1rem;
+          left: 0.5rem;
+        }
+      }
+      
+      button {
+        background-color: ${({theme}) => theme.color.c2};
+        border-radius: 0 0.5rem 0.5rem 0;
+        padding: 0.5rem;
+        
+        &:hover {
+          background-color: ${({theme}) => theme.color.c1};
+        }
+      }
+    }
   }
 `

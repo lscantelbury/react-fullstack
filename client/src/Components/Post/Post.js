@@ -54,16 +54,19 @@ export function ExpandedPost(){
                     <div className="text">{postObject.postText}</div>
                     <div className="username">{postObject.username}</div>
                 </div>
-                <div className="comments">
+                <div className="comments" align="center">
+                    <h2 className="title">Comments</h2>
                     <div className="listOfComments">
                         {comments.map((comment, key) => {
                             return <div key={key} className="comment"> {comment.commentBody} </div>
                         })}
                     </div>
-                    <input value={newComment} type='text' placeholder="Comment.." autoComplete="off" onChange={(event) => {
-                        setNewComment(event.target.value)
-                    }}/>
-                    <button onClick={addComment}>Add Comment</button>
+                    <div className="input">
+                        <textarea value={newComment} wrap="soft" autoComplete="off" onChange={(event) => {
+                            setNewComment(event.target.value)
+                        }}/>
+                        <button onClick={addComment}>Comment</button>
+                    </div>
                 </div>
             </ExpandedCard>
     );

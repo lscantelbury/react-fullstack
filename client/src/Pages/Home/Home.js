@@ -18,7 +18,6 @@ export function Home(){
         <HomePage>
                 <button className='createPost' onClick={() => {history.push('/create-post')}}>Create a post</button>
                 <Post listOfPosts={listOfPosts} />
-                <footer>Luís Henrique Scantelbury de Almeida</footer>
         </HomePage>
     </>
     )

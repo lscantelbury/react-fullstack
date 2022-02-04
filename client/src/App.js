@@ -17,6 +17,7 @@ function App() {
                   <Route path='/create-post' exact component={CreatePost} />
                   <Route path='/post/:id' exact component={ExpandedPost} />
               </Switch>
+              <footer>Luís Henrique Scantelbury de Almeida</footer>
           </Router>
       </ThemeProvider>
   );
