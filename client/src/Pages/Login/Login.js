@@ -15,13 +15,17 @@ export const Login = () => {
     return(
         <LoginCard>
             <h1 align="center">Login</h1>
-            <input type="text" onChange={(event) => {
-                setUserName(event.target.value)
-            }}/>
-            <input type="password" onChange={(event) => {
-                setPassword(event.target.value)
-            }}/>
-            <button className="buttonCreate" onClick={login}>Login</button>
+            <form>
+                <div>
+                    <input placeholder="Username" type="text" onChange={(event) => {
+                        setUserName(event.target.value)
+                    }}/>
+                    <input placeholder="Password" type="password" onChange={(event) => {
+                        setPassword(event.target.value)
+                    }}/>
+                </div>
+                <button className="buttonCreate" onClick={login}>Login</button>
+            </form>
         </LoginCard>
     )
 }

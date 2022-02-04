@@ -21,7 +21,7 @@ export const LoginCard = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   * {
     margin: 0.25rem;
     padding: 0.5rem;
