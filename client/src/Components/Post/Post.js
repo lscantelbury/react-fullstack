@@ -69,7 +69,10 @@ export function ExpandedPost(){
                     <h2 className="title">Comments</h2>
                     <div className="listOfComments">
                         {comments.map((comment, key) => {
-                            return <div key={key} className="comment"> {comment.commentBody} </div>
+                            return <div key={key} className="comment">
+                                {comment.commentBody}
+                                <label>  @{comment.username} </label>
+                            </div>
                         })}
                     </div>
                     <div className="input">

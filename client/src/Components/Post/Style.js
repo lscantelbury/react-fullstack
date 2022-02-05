@@ -143,6 +143,8 @@ export const ExpandedCard = styled.div`
   .comments {
     min-height:  ${(cardH*4).toString()}rem ;
     border-radius: 1rem;
+    margin: 0;
+    padding: 0;
     
     background-color: ${({theme}) => theme.color.c4};
     box-shadow: 0 0 1em ${({theme}) => theme.color.c1};
@@ -151,8 +153,6 @@ export const ExpandedCard = styled.div`
     flex-grow: 2;
     
     justify-content: space-between;
-    align-items: stretch;
-    
     * {
       margin: 0.5rem;
     }
@@ -169,6 +169,7 @@ export const ExpandedCard = styled.div`
       background-color: ${({theme}) => theme.color.c5};
       border: 2px solid ${({theme}) => theme.color.c2};
       border-radius: 0.5rem;
+      align-self: stretch;
     }
     .comment {
       min-height: 1.5rem;
@@ -176,8 +177,15 @@ export const ExpandedCard = styled.div`
       border-radius: 0.25rem;
       
       display: flex;
-      justify-content: flex-start;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0.25rem;
+      
+      label {
+        font-size: 0.5rem;
+        color: cornflowerblue;
+        align-self: flex-end;
+      }
     }
     
     .input {
