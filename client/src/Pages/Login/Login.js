@@ -10,7 +10,8 @@ export const Login = () => {
         const data = { username: userName, password: password }
         axios.post('http://localhost:3001/auth/login', data).then((res) => {
             if(res.data.error) return alert(res.data.error);
-            sessionStorage.setItem("accestToken", res.data)
+            console.log("LOGGED IN")
+            sessionStorage.setItem("accessToken", res.data)
         })
     }
     return(
