@@ -35,13 +35,21 @@ export function ExpandedPost(){
         });
 
         axios.get(`http://localhost:3001/comments/${id}`).then((res) => {
-            console.log(res.data)
             setComments(res.data);
         })
     }, [])
 
     const addComment = () => {
-        axios.post("http://localhost:3001/comments", {commentBody: newComment, PostId: id}).then(() => {
+        axios.post("http://localhost:3001/comments", {
+            commentBody: newComment,
+            PostId: id
+            },
+        {
+            headers: {
+                accessToken: sessionStorage.getItem("accessToken"),
+            }
+        }).then((res) => {
+            if (res.data.error) return alert(res.data)
             const commentToAdd = {commentBody: newComment};
             setComments([...comments, commentToAdd]);
             setNewComment('');
