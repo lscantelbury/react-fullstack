@@ -46,13 +46,16 @@ export function ExpandedPost(){
             },
         {
             headers: {
-                accessToken: sessionStorage.getItem("accessToken"),
+                accessToken: sessionStorage.getItem("accessToken")
             }
         }).then((res) => {
-            if (res.data.error) return alert(res.data)
-            const commentToAdd = {commentBody: newComment};
-            setComments([...comments, commentToAdd]);
-            setNewComment('');
+            if (res.data.error) {
+                console.log(res.data.error);
+            }else {
+                const commentToAdd = {commentBody: newComment};
+                setComments([...comments, commentToAdd]);
+                setNewComment('');
+            }
         })
     }
     return(
