@@ -2,17 +2,21 @@ import {LoginCard} from "./Style";
 import axios from "axios";
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
-
+import {useContext} from "react";
+import {AuthContext} from "../../helpers/AuthContext";
 export const Login = () => {
     const [userName, setUserName] = useState();
     const [password, setPassword] = useState();
+    const {setAuthState} = useContext(AuthContext);
     const history = useHistory();
 
     const login = () => {
         const data = { username: userName, password: password }
         axios.post('http://localhost:3001/auth/login', data).then((res) => {
             if(res.data.error) return alert(res.data.error);
-            sessionStorage.setItem("accessToken", res.data)
+            localStorage.setItem("accessToken", res.data)
+            setAuthState(true);
+
         })
         history.push('/');
     }
