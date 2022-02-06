@@ -22,9 +22,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${theme.color.grey};
     
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
     
-    align-items: center;
     
     overflow-y: scroll;
   }

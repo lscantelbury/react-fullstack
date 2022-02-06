@@ -14,9 +14,8 @@ export const Login = () => {
         const data = { username: userName, password: password }
         axios.post('http://localhost:3001/auth/login', data).then((res) => {
             if(res.data.error) return alert(res.data.error);
-            localStorage.setItem("accessToken", res.data)
-            setAuthState(true);
-
+            localStorage.setItem("accessToken", res.data.token)
+            setAuthState({username: res.data.username, id: res.data.id, status: true});
         })
         history.push('/');
     }

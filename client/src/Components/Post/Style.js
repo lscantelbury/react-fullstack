@@ -71,20 +71,20 @@ export const ExpandedCard = styled.div`
   @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
   
   display: flex;
-  padding: 1rem;
-  
-  align-items: center;
-  justify-content: space-between;
-  
+  padding: 0.25rem;
+  gap: 2rem;
   * {
     margin: 1rem;
   }
   
 .card {
-  flex-grow: 3;
 
-  min-height: ${(cardH*4).toString()}rem ;
-  width: ${(cardW*2).toString()}vw;
+  margin: 0;
+  padding: 0;
+  
+  min-height: 100%;
+  width: 70%;
+ /* width: $(cardW*2).toString()vw;*/
 
   background-color: ${({theme}) => theme.color.c4};
   border-radius: 1rem;
@@ -141,7 +141,8 @@ export const ExpandedCard = styled.div`
   }
 }
   .comments {
-    min-height:  ${(cardH*4).toString()}rem ;
+    min-height:  100%;
+    width: 30%;
     border-radius: 1rem;
     margin: 0;
     padding: 0;
@@ -150,12 +151,6 @@ export const ExpandedCard = styled.div`
     box-shadow: 0 0 1em ${({theme}) => theme.color.c1};
     display: flex;
     flex-flow: column wrap;
-    flex-grow: 2;
-    
-    justify-content: space-between;
-    * {
-      margin: 0.5rem;
-    }
     
     .title {
       font-size: 2rem;
@@ -165,27 +160,45 @@ export const ExpandedCard = styled.div`
     }
     
     .listOfComments {
-      flex-grow: 1;
+      padding: 0;
+      margin: 0;
+      height: 24rem;
+      width: 90%;
       background-color: ${({theme}) => theme.color.c5};
       border: 2px solid ${({theme}) => theme.color.c2};
       border-radius: 0.5rem;
-      align-self: stretch;
+      overflow-y: scroll;
+      align-self: center;
     }
     .comment {
       min-height: 1.5rem;
       background-color: whitesmoke;
       border-radius: 0.25rem;
-      
+      word-break: break-all;
+      text-align: justify;
       display: flex;
-      flex-direction: column;
+      flex-flow: column wrap;
       align-items: flex-start;
       padding: 0.25rem;
+      
+      button {
+        margin: 0.25rem;
+        padding: 0;
+        background-color: red;
+        width: 1rem;
+        height: 1rem;
+        font-size: 0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       
       label {
         font-size: 0.5rem;
         color: cornflowerblue;
         align-self: flex-end;
       }
+      
     }
     
     .input {

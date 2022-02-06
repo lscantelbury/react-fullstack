@@ -1,8 +1,8 @@
 import {Card, ExpandedCard} from "./Style";
 import {useHistory, useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import axios from "axios";
-
+import {AuthContext} from "../../helpers/AuthContext";
 export function Post({listOfPosts}){
     const history = useHistory();
 
@@ -29,6 +29,7 @@ export function ExpandedPost(){
     const [postObject, setPostObject] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('')
+    const  { authState } = useContext(AuthContext);
     useEffect(() => {
         axios.get(`http://localhost:3001/posts/byId/${id}`).then((res) => {
             setPostObject(res.data)
@@ -58,6 +59,16 @@ export function ExpandedPost(){
             }
         })
     }
+
+    const deleteComment = (id) => {
+        axios.delete(`http://localhost:3001/comments/${id}`, {
+            headers: {accessToken: localStorage.getItem("accessToken")}
+        }).then(() => {
+            setComments(comments.filter((value) => {
+                return value.id != id;
+            }))
+        })
+    }
     return(
             <ExpandedCard>
                 <div className="card">
@@ -72,6 +83,9 @@ export function ExpandedPost(){
                             return <div key={key} className="comment">
                                 {comment.commentBody}
                                 <label>  @{comment.username} </label>
+                                {authState.username === comment.username && <button onClick={() => {
+                                deleteComment(comment.id)}
+                                }>X</button>}
                             </div>
                         })}
                     </div>
