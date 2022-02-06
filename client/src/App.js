@@ -9,15 +9,22 @@ import {Login} from "./Pages/Login/Login";
 import {Registration} from "./Pages/Registration/Registration";
 import {AuthContext} from "./helpers/AuthContext";
 import {useEffect, useState} from "react";
+import axios from 'axios';
 
 
 function App() {
     const [authState, setAuthState] = useState(false);
 
     useEffect(() => {
-        if (localStorage.getItem("accessToken")){
-            setAuthState(true);
-        }
+        axios.get('http://localhost:3001/auth/auth', { headers: {
+            accessToken: localStorage.getItem('accessToken'),
+            }}).then((res) => {
+            if (res.data.error){
+                setAuthState(false);
+            }else {
+                setAuthState(true);
+            }
+        })
     }, [])
   return (
       <ThemeProvider theme={theme}>

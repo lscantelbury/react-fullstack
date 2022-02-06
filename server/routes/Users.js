@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
     })
 })
 
-router.get('/auth',validateToken, (res, req) => {
+router.get('/auth',validateToken, (req, res) => {
     res.json(req.user);
 })
 module.exports = router
