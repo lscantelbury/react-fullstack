@@ -28,6 +28,10 @@ export const Card = styled.div`
     transform: scale(1.3);
   }
   
+  &:hover {
+    box-shadow: 0 0 3em ${({theme}) => theme.color.c2};
+  }
+  
   * {
     margin: 0.25rem;
     padding: 0.5rem;
