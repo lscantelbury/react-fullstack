@@ -3,14 +3,16 @@ import {CreatePostCard} from "./Style";
 import {useHistory} from "react-router-dom";
 import * as Yup from 'yup';
 import axios from "axios";
+import {useContext} from "react";
+import {AuthContext} from "../../helpers/AuthContext";
 
 export function CreatePost(){
     const history = useHistory();
-
+    const { authState } = useContext(AuthContext);
     const initialValues = {
         title: "",
         text: "",
-        username: "",
+        username: authState.username,
     };
 
     const handleSubmit = (data) => {
@@ -23,7 +25,6 @@ export function CreatePost(){
     const validationSchema = Yup.object().shape({
         title: Yup.string().required(),
         postText: Yup.string().required(),
-        username: Yup.string().min(3).max(15).required(),
     });
     return(
         <>
@@ -37,7 +38,7 @@ export function CreatePost(){
                         <Field autocomplete="off" id="inputCreatePost" className="text" name="postText" placeholder={"Post"} />
 
                         <ErrorMessage name="username"  component="label"/>
-                        <Field autocomplete="off" id="inputCreatePost" className="username" name="username" placeholder={"Username"} />
+                        <Field value={authState.username} autocomplete="off" id="inputCreatePost" className="username" name="username" placeholder={"Username"} />
                         <button className="buttonCreate" type="submit">Create Post</button>
                     </Form>
                 </Formik>
