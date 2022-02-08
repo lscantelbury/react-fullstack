@@ -8,15 +8,15 @@ export function Post({listOfPosts}){
 
     return(
         <>
-            {listOfPosts.map((value) => {
+            {listOfPosts.map((value, key) => {
                 return(
                     <Card>
-                        <div className="title" key={value.id}>{value.title}</div>
-                        <div className="text" key={value.id} onClick={() => {
+                        <div className="title" key={key}>{value.title}</div>
+                        <div className="text" key={key} onClick={() => {
                             history.push(`/post/${value.id}`)
                         }}
                         >{value.postText}</div>
-                        <div className="username" key={value.id}><a href="https://github.com/lscantelbury">{value.username}</a></div>
+                        <div className="username" key={key}><a href="https://github.com/lscantelbury">{value.username}</a></div>
                     </Card>
                 )
             })}
